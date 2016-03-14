@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 source ~/.profile
 
-echo Start En navngiven jenkins i baggrunden med porte eksponerer i den dynamiske port range
+echo Start en navngiven jenkins i baggrunden med porte eksponeret i den dynamiske port range
 docker run -d -P --name en-jenkins-container jenkins
 
-echo Venter lidt på at Jenkins starter
+echo Vent lidt indtil Jenkins starter ...
 sleep 10
 
 echo Load jenkins ind i firefox ved at inspicere docker efter den dynamiske port
