@@ -8,6 +8,10 @@ function setup
     docker run -d --name killMeToo jenkins
     docker run -d --name killMeTheHardWay jenkins
     docker stop killMe
+
+    docker run -d jenkins
+    docker run -d jenkins
+    docker run -d jenkins
 }
 
 setup
@@ -21,4 +25,8 @@ docker rm killMeToo
 
 echo Alternativt
 docker rm -f killMeTheHardWay
+
+echo Slet alt
+docker rm -f $(docker ps -aq)
+
 
