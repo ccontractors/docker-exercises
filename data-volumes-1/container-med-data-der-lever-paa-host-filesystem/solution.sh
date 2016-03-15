@@ -3,7 +3,9 @@
 function cleanup
 {
     docker rm -f micro-ci base-jenkins
+    rm -rf jobs
 }
+
 trap cleanup EXIT
 cleanup
 
@@ -33,7 +35,7 @@ echo start ny jenkins med opsætning fra den gamle jenkins
 
 docker run -d --name micro-ci -v $PWD/jobs:/var/jenkins_home/jobs -P jenkins
 
-firefox dockerhost.example.org:$(docker inspect --format='{{(index (index .NetworkSettings.Ports "8080/tcp") 0).HostPort}}' micro-ci)
+echo Vent lidt. Sluk firefox naar du er klar
+sleep 5
 
-echo Vent og stop om lidt
-sleep 60
+firefox dockerhost.example.org:$(docker inspect --format='{{(index (index .NetworkSettings.Ports "8080/tcp") 0).HostPort}}' micro-ci)
