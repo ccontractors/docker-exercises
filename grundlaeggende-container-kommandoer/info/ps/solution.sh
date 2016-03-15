@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-source ~/.profile
 
 echo Se kørende containere
 docker ps

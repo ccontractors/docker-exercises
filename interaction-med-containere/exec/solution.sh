@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-source ~/.profile
 
 docker run -d --name min-jenkins -p 5678:8080 jenkins
 

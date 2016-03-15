@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-source ~/.profile
 
 # Ignore this. Solution starts below
 function cleanup

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-source ~/.profile
 
 echo Start en navngiven jenkins i baggrunden, og eksponer containerens port 8080 på hostens port 9999
 docker run --name min-jenkins -d -p 9999:8080 jenkins

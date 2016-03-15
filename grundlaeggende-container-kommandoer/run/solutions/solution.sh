@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-source ~/.profile
 
 xterm -hold -e "docker run jenkins ; read" &
 xterm -hold -e "docker run ubuntu ; read" &

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-source ~/.profile
 
 echo Start en navngiven jenkins i baggrunden med porte eksponeret i den dynamiske port range
 docker run -d -P --name en-jenkins-container jenkins
