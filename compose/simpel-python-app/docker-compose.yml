@@ -3,7 +3,7 @@
 proxy:
   image: jwilder/nginx-proxy
   volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+      - /var/run/docker.sock:/tmp/docker.sock:ro
   ports:
       - "80:80"
    
@@ -17,6 +17,7 @@ web:
    - redis
   environment:
    - VIRTUAL_HOST=count.dockerhost.example.org
+   - VIRTUAL_PORT=5001
+
 redis:
   image: redis
-
