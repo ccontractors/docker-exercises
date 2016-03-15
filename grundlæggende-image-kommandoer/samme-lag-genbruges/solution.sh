@@ -2,20 +2,15 @@
 
 function cleanup
 {
-    docker rm -f jenkins-1 jenkins-2
+    echo cleanup
 }
 
 trap cleanup EXIT
 cleanup
 
-echo start et par jenkins med delt filsystem
-docker run -P -d --name jenkins-1 -v /var/jenkins_home jenkins
-docker run -P -d --name jenkins-2 --volumes-from jenkins-1 jenkins
+git clone https://github.com/justone/dockviz.git
+cd dockviz
 
-docker stop jenkins-1
-docker rm -v jenkins-1
-
-echo Hvad er der paa jenkins-2
-docker exec jenkins-2 ls /var/jenkins_home
-
-
+# (se f.eks. images med ”eog images.png”. eog er en image viewer)
+dockviz images -d | dot -Tpng -o images.png
+dockviz containers -d | dot -Tpng -o containers.png
