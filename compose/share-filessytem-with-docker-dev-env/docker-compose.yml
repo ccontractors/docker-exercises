@@ -1,11 +1,11 @@
 # http://southworks.com/blog/2015/07/17/docker-compose-scaling-multi-container-applications/
 
-haproxy:
-  image: tutum/haproxy
-  links:
-   - web
+proxy:
+  image: jwilder/nginx-proxy
+  volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
   ports:
-   - "80:80"
+      - "80:80"
    
 web:
   build: .

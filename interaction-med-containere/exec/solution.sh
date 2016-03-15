@@ -26,4 +26,8 @@ ls
 # Se de jobs du har lavet i filsystemet
 ls
 
+# Slet jobs folderen
 docker exec min-jenkins rm -rf /var/lib/jenkins_home/jobs
+
+# Genstart Jenkins
+docker restart min-jenkins
