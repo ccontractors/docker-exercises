@@ -1,0 +1,33 @@
+# http://southworks.com/blog/2015/07/17/docker-compose-scaling-multi-container-applications/
+
+proxy:
+  image: jwilder/nginx-proxy
+  volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+  ports:
+      - "80:80"
+   
+web1:
+  image: my-count:v1
+  #build: .
+  ports:
+   - "5000"
+  links:
+   - redis
+  environment:
+   - VIRTUAL_HOST=count.dockerhost.example.org
+   - VIRTUAL_PORT=5000
+
+web2:
+  image: my-count:v2
+  ports:
+   - "5000"
+  links:
+   - redis
+  environment:
+   - VIRTUAL_HOST=count.dockerhost.example.org
+   - VIRTUAL_PORT=5000
+
+redis:
+  image: redis
+  
